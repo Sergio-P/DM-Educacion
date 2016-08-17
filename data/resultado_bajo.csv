@@ -1,0 +1,21 @@
+"","lhs","rhs","support","confidence","lift"
+"1","{promedio_edad=Medio,clasif_inst_n3=Universidades Privadas CRUCH}","{rdeser=Muy Bajo}",0.0102578319933463,0.528571428571429,2.64188056746948
+"2","{promedio_edad=Medio,clasif_inst_n3=Universidades Privadas CRUCH,jornada=DIURNO}","{rdeser=Muy Bajo}",0.0102578319933463,0.5311004784689,2.65452114434733
+"3","{promedio_edad=Medio,clasif_inst_n3=Universidades Privadas CRUCH,modalidad=PRESENCIAL}","{rdeser=Muy Bajo}",0.0102578319933463,0.528571428571429,2.64188056746948
+"4","{total_matriculados=Alto,particular=Alto,clasif_inst_n3=Universidades Privadas CRUCH}","{rdeser=Muy Bajo}",0.0112743739025968,0.510460251046025,2.55135814160233
+"5","{total_matriculados=Alto,promedio_edad=Medio,arancel=Alto}","{rdeser=Muy Bajo}",0.0114591997042787,0.521008403361345,2.6040794146758
+"6","{promedio_edad=Medio,arancel=Alto,acreditada=acreditado}","{rdeser=Muy Bajo}",0.0109971352000739,0.53125,2.65526847575058
+"7","{promedio_edad=Medio,clasif_inst_n3=Universidades Privadas CRUCH,modalidad=PRESENCIAL,jornada=DIURNO}","{rdeser=Muy Bajo}",0.0102578319933463,0.5311004784689,2.65452114434733
+"8","{total_matriculados=Alto,particular=Alto,arancel=Alto,clasif_inst_n3=Universidades Privadas CRUCH}","{rdeser=Muy Bajo}",0.0102578319933463,0.509174311926605,2.54493082187427
+"9","{total_matriculados=Alto,particular=Alto,clasif_inst_n3=Universidades Privadas CRUCH,jornada=DIURNO}","{rdeser=Muy Bajo}",0.0112743739025968,0.510460251046025,2.55135814160233
+"10","{total_matriculados=Alto,particular=Alto,clasif_inst_n3=Universidades Privadas CRUCH,modalidad=PRESENCIAL}","{rdeser=Muy Bajo}",0.0112743739025968,0.510460251046025,2.55135814160233
+"11","{total_matriculados=Alto,promedio_edad=Medio,arancel=Alto,jornada=DIURNO}","{rdeser=Muy Bajo}",0.0114591997042787,0.521008403361345,2.6040794146758
+"12","{total_matriculados=Alto,promedio_edad=Medio,arancel=Alto,modalidad=PRESENCIAL}","{rdeser=Muy Bajo}",0.0114591997042787,0.521008403361345,2.6040794146758
+"13","{promedio_edad=Medio,arancel=Alto,jornada=DIURNO,acreditada=acreditado}","{rdeser=Muy Bajo}",0.0109971352000739,0.53125,2.65526847575058
+"14","{promedio_edad=Medio,arancel=Alto,modalidad=PRESENCIAL,acreditada=acreditado}","{rdeser=Muy Bajo}",0.0109971352000739,0.53125,2.65526847575058
+"15","{total_matriculados=Alto,particular=Alto,arancel=Alto,clasif_inst_n3=Universidades Privadas CRUCH,jornada=DIURNO}","{rdeser=Muy Bajo}",0.0102578319933463,0.509174311926605,2.54493082187427
+"16","{total_matriculados=Alto,particular=Alto,arancel=Alto,clasif_inst_n3=Universidades Privadas CRUCH,modalidad=PRESENCIAL}","{rdeser=Muy Bajo}",0.0102578319933463,0.509174311926605,2.54493082187427
+"17","{total_matriculados=Alto,particular=Alto,clasif_inst_n3=Universidades Privadas CRUCH,modalidad=PRESENCIAL,jornada=DIURNO}","{rdeser=Muy Bajo}",0.0112743739025968,0.510460251046025,2.55135814160233
+"18","{total_matriculados=Alto,promedio_edad=Medio,arancel=Alto,modalidad=PRESENCIAL,jornada=DIURNO}","{rdeser=Muy Bajo}",0.0114591997042787,0.521008403361345,2.6040794146758
+"19","{promedio_edad=Medio,arancel=Alto,modalidad=PRESENCIAL,jornada=DIURNO,acreditada=acreditado}","{rdeser=Muy Bajo}",0.0109971352000739,0.53125,2.65526847575058
+"20","{total_matriculados=Alto,particular=Alto,arancel=Alto,clasif_inst_n3=Universidades Privadas CRUCH,modalidad=PRESENCIAL,jornada=DIURNO}","{rdeser=Muy Bajo}",0.0102578319933463,0.509174311926605,2.54493082187427
