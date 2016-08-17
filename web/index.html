@@ -84,17 +84,18 @@ Además se agregaron los indicadores de población total de la región en donde 
 
 	<section ng-show="page==3">
 		<h3><i class="fa fa-eraser"></i> Limpieza de Datos</h3>
+		<img class="fullimg" src="gpx/edpic3.jpg">
 		<p><h4>Correctitud de tipos</h4>
-Se llevó todo a una base de datos, donde hubo que hacer ciertos cambios a los datos para poder importarlos correctamente, como cambiar las comas decimales por puntos y cambiar la notación de años por números, ya que estaban representados con una palabra antes.<br>
+Se llevó todo a una base de datos, donde hubo que hacer ciertos cambios a los datos para poder importarlos correctamente, como cambiar las comas decimales por puntos y cambiar la notación de años por números, ya que estaban representados con una palabra antes.<br><br>
 <h4>Cálculo de la deserción</h4>
 Luego se creó la fórmula para calcular una aproximación de la deserción cada año, que es:<br>
-d(n) = M(n) +m(n+1) -M(n+1) -t(n)<br>
+<img src="gpx/deserformula.jpg"><br>
 d(n): Cantidad de desertores en el año n<br>
 M(n): Cantidad de matriculados en todos los años el año n<br>
 m(n): Cantidad de matriculados en primer año en el año n<br>
-t(n): Cantidad de titulados de la carrera en el año n<br>
+t(n): Cantidad de titulados de la carrera en el año n<br><br>
 La lógica detrás de esta fórmula viene de que la cantidad de matriculados totales de un año junto a los nuevos matriculados del año siguiente tienen que ser los mismos que la cantidad de matriculados del año siguiente junto a la gente que se tituló el año anterior y la gente que desertó.<br>
-<br><br>
+<br>
 Este cálculo lleva a tener que eliminar tres tipos de datos:<br>
 Aquellos que les falta cualquiera de los atributos necesarios para calcular la deserción<br>
 Aquellos correspondientes al año más reciente ya que no hay suficientes datos para calcular la deserción al faltas los matriculados del año siguiente<br>
