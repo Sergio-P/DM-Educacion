@@ -1,0 +1,13 @@
+"","lhs","rhs","support","confidence","lift"
+"1","{arancel=Muy Bajo,area_ocde=SERVICIOS}","{rdeser=Alto}",0.0212549671934202,0.515695067264574,2.57871364273103
+"2","{arancel=Muy Bajo,clasif_inst_n3=Institutos Profesionales,area_ocde=SERVICIOS}","{rdeser=Alto}",0.0122909158118473,0.570815450643777,2.85434103115356
+"3","{arancel=Muy Bajo,area_ocde=SERVICIOS,acreditada=no acreditado}","{rdeser=Alto}",0.0199611865816468,0.514285714285714,2.57166622656456
+"4","{arancel=Muy Bajo,area_ocde=SERVICIOS,modalidad=PRESENCIAL}","{rdeser=Alto}",0.0207004897883745,0.513761467889908,2.56904475232749
+"5","{particular=Muy Bajo,area_ocde=SERVICIOS,acreditada=no acreditado}","{rdeser=Alto}",0.0125681545143702,0.5,2.50023105360444
+"6","{arancel=Muy Bajo,clasif_inst_n3=Institutos Profesionales,area_ocde=SERVICIOS,acreditada=no acreditado}","{rdeser=Alto}",0.0121060900101654,0.582222222222222,2.91138016019717
+"7","{arancel=Muy Bajo,clasif_inst_n3=Institutos Profesionales,area_ocde=SERVICIOS,modalidad=PRESENCIAL}","{rdeser=Alto}",0.0117364384068016,0.566964285714286,2.83508342685503
+"8","{arancel=Muy Bajo,area_ocde=SERVICIOS,modalidad=PRESENCIAL,acreditada=no acreditado}","{rdeser=Alto}",0.0194067091766011,0.51219512195122,2.5612122988143
+"9","{particular=Muy Bajo,area_ocde=SERVICIOS,modalidad=PRESENCIAL,acreditada=no acreditado}","{rdeser=Alto}",0.0120136771093245,0.5,2.50023105360444
+"10","{promedio_edad=Medio Alto,arancel=Muy Bajo,jornada=VESPERTINO,acreditada=no acreditado}","{rdeser=Alto}",0.0150633028370761,0.510971786833856,2.55509505791551
+"11","{arancel=Muy Bajo,clasif_inst_n3=Institutos Profesionales,area_ocde=SERVICIOS,modalidad=PRESENCIAL,acreditada=no acreditado}","{rdeser=Alto}",0.0115516126051197,0.578703703703704,2.8937859416718
+"12","{promedio_edad=Medio Alto,arancel=Muy Bajo,modalidad=PRESENCIAL,jornada=VESPERTINO,acreditada=no acreditado}","{rdeser=Alto}",0.0148784770353941,0.509493670886076,2.54770379512857
