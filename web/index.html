@@ -91,19 +91,22 @@ Se llevó todo a una base de datos, donde hubo que hacer ciertos cambios a los d
 <h4>Cálculo de la deserción</h4>
 Luego se creó la fórmula para calcular una aproximación de la deserción cada año, que es:<br>
 <img src="gpx/deserformula.jpg"><br>
-d(n): Cantidad de desertores en el año n<br>
+Deserción(n): Cantidad de desertores en el año n<br>
 M(n): Cantidad de matriculados en todos los años el año n<br>
-m(n): Cantidad de matriculados en primer año en el año n<br>
-t(n): Cantidad de titulados de la carrera en el año n<br><br>
+N(n): Cantidad de matriculados en primer año en el año n<br>
+T(n): Cantidad de titulados de la carrera en el año n<br><br>
 La lógica detrás de esta fórmula viene de que la cantidad de matriculados totales de un año junto a los nuevos matriculados del año siguiente o se matriculan en el año, se titulan o desertan.<br>
 <br>
 Este cálculo lleva a tener que eliminar tres tipos de datos:<br>
-Aquellos que les falta cualquiera de los atributos necesarios para calcular la deserción<br>
-Aquellos correspondientes al año más reciente ya que no hay suficientes datos para calcular la deserción al faltas los matriculados del año siguiente<br>
-Aquellos que muestran una deserción negativa, al analizar estos casos individualmente se ve que son porque los datos no son coherentes, por ejemplo muestran 50 matriculados y 200 titulados por año.<br>
+  - Aquellos que les falta cualquiera de los atributos necesarios para calcular la deserción<br>
+  - Aquellos correspondientes al año más reciente ya que no hay suficientes datos para calcular la deserción al faltas los matriculados del año siguiente<br>
+  - Aquellos que muestran una deserción negativa, al analizar estos casos individualmente se ve que son porque los datos no son coherentes, por ejemplo muestran 50 matriculados y 200 titulados por año.<br>
 <br>
 <h4>Normalización</h4>
 Luego, toda columna que tiene cantidades fue normalizada, por ejemplo en el caso de matriculados masculinos y femeninos por carrera, ahora son una proporción con respecto a la cantidad total de matriculados de la carrera, lo mismo para los titulados. Para datos como la cantidad de matriculados, se dividió por la población total de la región y para el PIB, se usó cantidad de matriculados dividido por el PIB de la región.<br>
+<br>
+<br>
+<br>
 		</p>
 	</section>
 
@@ -177,9 +180,9 @@ La tercera tabla de indicadores se describe como:</p>
 <li class="list-group-item">Área OCDE : String</li>
 <li class="list-group-item">Modalidad presencial, semi-presencial o no presencial : String</li>
 <li class="list-group-item">Jornada diurna, vespertina a distancia : String</li>
-<li class="list-group-item">Acreditada o no : 1 si, 2 no.</li>
+<li class="list-group-item">Acreditada o no : String.</li>
 </ul>
-<p>La mayoría de estos indicadores están en formato numérico y por lo tanto es imperativo <strong>discretizar</strong>. Para esto se creó un script Python que tome cada columna numérica y aplique una discretización en quintiles (5 grupos con igual cantidad de elementos), dándoles la categoría de Muy bajo, Bajo, Medio, Medio Alto, Alto.
+<p>La mayoría de estos indicadores están en formato numérico y por lo tanto es imperativo <strong>discretizar</strong>. Para esto se creó un script Python que tome cada columna numérica y aplique una discretización en quintiles (5 grupos con igual cantidad de elementos), dándoles la categoría de Muy Bajo, Bajo, Medio, Medio Alto, Alto.
 	</p>
 	</section>
 </div>
