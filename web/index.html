@@ -21,61 +21,69 @@
 <div class="container">
 	<div class="content">
 	<section ng-show="page==1">
-		<h3>Descripción del Problema</h3>
+		<h3><i class="fa fa-question-circle"></i> Descripción del Problema</h3>
 		<p>La educación superior en Chile es un tema que todo ciudadano debe tomar en cuenta, y por ello ésta amerita un profundo estudio de su comportamiento con el objetivo de crear políticas públicas acordes a su situación actual. En este proyecto analizaremos sólo ciertos aspectos de la educación superior: los procesos de matrícula y titulación de todas las universidades, centros de formación técnica e institutos profesional del territorio chileno; con tal de obtener posible información relacionada a correlación entre deserción y características de la carrera. Estos procesos, al ser contemporáneos y a nivel nacional, manejan un gran cantidad de datos de variados aspectos: cantidad de titulados, origen de ellos, etc.; los cuales con un análisis estadístico estándar no se podría obtener toda la información que estos datos pueden ocultar, es por eso que se debe recurrir a técnicas de minería de datos para revelar esta información. En particular, se usará la técnica de reglas de asociación, para ver cuáles son las características de las carreras que tienen correlación con que la carrera tenga una deserción alta o baja.<br>
 		</p>
 	</section>
 
 	<section ng-show="page==2">
-		<h3>Descripción de los Datos</h3>
-		<p>Los datos fueron obtenidos del sitio web del gobierno www.mifuturo.cl, en donde hay datasets de matriculados, titulados e información general sobre las carreras.<br>
+		<h3><i class="fa fa-database"></i> Descripción de los Datos</h3>
+		<p>Los datos fueron obtenidos del sitio web del gobierno <a href="http://www.mifuturo.cl">www.mifuturo.cl</a>, en donde hay datasets de matriculados, titulados e información general sobre las carreras.<br><br>
+<h4>Matriculados</h4>
 El dataset de Matriculados a la Educación Superior, con 113098 filas, entrega para los años desde el 2007 al 2015 los siguientes datos para cada carrera:<br>
-<br>
-Total de matriculados por año en todos los años de educación, y también este mismo dato separado entre hombres y mujeres.<br>
-Total de matriculados de primer año, también separado en hombres y mujeres.<br>
-Clasificación de la institución, ésta puede ser una Universidad, Instituto Profesional o Centro de Formación Técnica. A la vez las universidades pueden ser estatales CRUCH, privadas CRUCH o privadas no CRUCH.<br>
-Nombre de la institución junto a la ciudad y región en donde está.<br>
-Nombre de la carrera con área y subáreas de acuerdo a distintas clasificaciones (como CINE-UNESCO u OCDE) y su duración con y sin trabajo de título.<br>
-Clasificación de la carrera como profesional, técnica o de posgrado, si ésta es presencial o no y si es de carácter Diurno o Vespertino.<br>
-Los rangos de edades de los matriculados, en grupos de 15 a 19 años, 20 a 24, 25 a 29, 30 a 34, 35 a 39 y 40 o más.<br>
-Promedio de edad de los estudiantes, junto a esta misma estadística separada entre hombres y mujeres.<br>
-Cantidad de alumnos matriculados que provienen de colegios municipales, particulares subvencionados y particulares pagados.<br>
-Cantidad y porcentaje de alumnos que provienen de enseñanza media.<br>
-Cantidad y clasificación de alumnos de acuerdo a colegios Científico Humanista, Técnico Profesional Comercial, Técnico Profesional Industrial, Técnico Profesional Agrícola y Técnico Profesional Marítima, y a la vez si son establecimientos para Jóvenes, Adultos y si son Vespertino y Nocturno.<br>
-<br>
-<br>
+<ul class="list-group">
+<li class="list-group-item">Total de matriculados por año en todos los años de educación, y también este mismo dato separado entre hombres y mujeres.</li>
+<li class="list-group-item">Total de matriculados de primer año, también separado en hombres y mujeres.</li>
+<li class="list-group-item">Clasificación de la institución, ésta puede ser una Universidad, Instituto Profesional o Centro de Formación Técnica. A la vez las universidades pueden ser estatales CRUCH, privadas CRUCH o privadas no CRUCH.</li>
+<li class="list-group-item">Nombre de la institución junto a la ciudad y región en donde está.</li>
+<li class="list-group-item">Nombre de la carrera con área y subáreas de acuerdo a distintas clasificaciones (como CINE-UNESCO u OCDE) y su duración con y sin trabajo de título.</li>
+<li class="list-group-item">Clasificación de la carrera como profesional, técnica o de posgrado, si ésta es presencial o no y si es de carácter Diurno o Vespertino.</li>
+<li class="list-group-item">Los rangos de edades de los matriculados, en grupos de 15 a 19 años, 20 a 24, 25 a 29, 30 a 34, 35 a 39 y 40 o más.</li>
+<li class="list-group-item">Promedio de edad de los estudiantes, junto a esta misma estadística separada entre hombres y mujeres.</li>
+<li class="list-group-item">Cantidad de alumnos matriculados que provienen de colegios municipales, particulares subvencionados y particulares pagados.</li>
+<li class="list-group-item">Cantidad y porcentaje de alumnos que provienen de enseñanza media.</li>
+<li class="list-group-item">Cantidad y clasificación de alumnos de acuerdo a colegios Científico Humanista, Técnico Profesional Comercial, Técnico Profesional Industrial, Técnico Profesional Agrícola y Técnico Profesional Marítima, y a la vez si son establecimientos para Jóvenes, Adultos y si son Vespertino y Nocturno.</li>
+</ul>
+<hr>
+<h4>Titulados</h4>
 El dataset de Titulados de la Educación Superior, en sus 72986 filas,  tiene para los años desde el 2007 al 2014 los siguientes datos por carrera:<br>
-<br>
-Total de matriculados en el año, y también este mismo dato separado entre hombres y mujeres.<br>
-Rango de edad de los titulados, en grupos de 15 a 19 años, 20 a 24, 25 a 29, 30 a 34, 35 a 39 y 40 o más.<br>
-Promedio de edad de los titulados, junto a la misma estadística para hombres y mujeres.<br>
-También están los mismos datos de los puntos 3, 4, 5 y 6 del dataset de Matriculados.<br>
-<br>
+<ul class="list-group">
+<li class="list-group-item">Total de matriculados en el año, y también este mismo dato separado entre hombres y mujeres.</li>
+<li class="list-group-item">Rango de edad de los titulados, en grupos de 15 a 19 años, 20 a 24, 25 a 29, 30 a 34, 35 a 39 y 40 o más.</li>
+<li class="list-group-item">Promedio de edad de los titulados, junto a la misma estadística para hombres y mujeres.</li>
+<li class="list-group-item">También están los mismos datos de los puntos 3, 4, 5 y 6 del dataset de Matriculados.</li>
+</ul>
+<hr>
+<h4>Aranceles</h4>
 El dataset de aranceles obtenido de mifuturo.cl, con sus 141756 filas, contiene entre los años 2007 y 2016 los siguiente datos de cada carrera:<br>
-Costo matrícula anual, titulación y arancel anual.<br>
-Tipo de institución 1, 2 y 3: donde 1 corresponde a si es universidad, instituto profesional o CFT; 2 corresponde a si es univesidad privada o del CRUCH, instituto profesional o CFT; y 3 corresponde a si es universidad del CRUCH estatal o privada, instituto profesional o CFT.<br>
-Contiene Region, Comuna y Ciudad de la institución.<br>
-Área carrera genérica, área CINUESCO, área y subárea OCDE.<br>
-Tipo IES, código IES, nombre IES.<br>
-Código sede, nombre sede.<br>
-Código de la carrera (dentro de la institución), nombre carrera.<br>
-Modalidad, jornada, tipo de carrera, si aplica o no plan especial (ej: plan para trabajadores, plan de funcionarios públicos, etc).<br>
-Duración (en semestres) de estudios de pregrado, de titulación y en total.<br>
-Nombre del título, grado académico, nivel global (pregrado, posgrado, postítulo), nivel carrera (bachillerato, técnica de nivel superior, licenciatura, etc).<br>
-Código DEMRE.<br>
-Si es está acreditada o no. Si es elegible para beca pedagógica.<br>
-Vigencia de alumnos nuevo, o solo alumnos antiguos.<br>
-Año de inicio.<br>
- Vacantes semestre uno y dos.<br>
-Puntaje PSU de corte y ponderación promedio en cada prueba de esta.<br>
-<br>
-<br>
+<ul class="list-group">
+<li class="list-group-item">Costo matrícula anual, titulación y arancel anual.</li>
+<li class="list-group-item">Tipo de institución 1, 2 y 3: donde 1 corresponde a si es universidad, instituto profesional o CFT; 2 corresponde a si es univesidad privada o del CRUCH, instituto profesional o CFT; y 3 corresponde a si es universidad del CRUCH estatal o privada, instituto profesional o CFT.</li>
+<li class="list-group-item">Contiene Region, Comuna y Ciudad de la institución.</li>
+<li class="list-group-item">Área carrera genérica, área CINUESCO, área y subárea OCDE.</li>
+<li class="list-group-item">Tipo IES, código IES, nombre IES.</li>
+<li class="list-group-item">Código sede, nombre sede.</li>
+<li class="list-group-item">Código de la carrera (dentro de la institución), nombre carrera.</li>
+<li class="list-group-item">Modalidad, jornada, tipo de carrera, si aplica o no plan especial (ej: plan para trabajadores, plan de funcionarios públicos, etc).</li>
+<li class="list-group-item">Duración (en semestres) de estudios de pregrado, de titulación y en total.</li>
+<li class="list-group-item">Nombre del título, grado académico, nivel global (pregrado, posgrado, postítulo), nivel carrera (bachillerato, técnica de nivel superior, licenciatura, etc).</li>
+<li class="list-group-item">Código DEMRE.</li>
+<li class="list-group-item">Si es está acreditada o no. Si es elegible para beca pedagógica.</li>
+<li class="list-group-item">Vigencia de alumnos nuevo, o solo alumnos antiguos.</li>
+<li class="list-group-item">Año de inicio.</li>
+<li class="list-group-item"> Vacantes semestre uno y dos.</li>
+<li class="list-group-item">Puntaje PSU de corte y ponderación promedio en cada prueba de esta.</li>
+</ul>
+<hr>
+<h4>Otros Datasets</h4>
 Además se agregaron los indicadores de población total de la región en donde se ubica el establecimiento de educación superior y del producto interno bruto (PIB) de la región.<br></p>
 	</section>
 
 	<section ng-show="page==3">
-		<h3>Limpieza de Datos</h3>
-		<p>Se llevó todo a una base de datos, donde hubo que hacer ciertos cambios a los datos para poder importarlos correctamente, como cambiar las comas decimales por puntos y cambiar la notación de años por números, ya que estaban representados con una palabra antes.<br><br>
+		<h3><i class="fa fa-eraser"></i> Limpieza de Datos</h3>
+		<p><h4>Correctitud de tipos</h4>
+Se llevó todo a una base de datos, donde hubo que hacer ciertos cambios a los datos para poder importarlos correctamente, como cambiar las comas decimales por puntos y cambiar la notación de años por números, ya que estaban representados con una palabra antes.<br>
+<h4>Cálculo de la deserción</h4>
 Luego se creó la fórmula para calcular una aproximación de la deserción cada año, que es:<br>
 d(n) = M(n) +m(n+1) -M(n+1) -t(n)<br>
 d(n): Cantidad de desertores en el año n<br>
@@ -89,8 +97,17 @@ Aquellos que les falta cualquiera de los atributos necesarios para calcular la d
 Aquellos correspondientes al año más reciente ya que no hay suficientes datos para calcular la deserción al faltas los matriculados del año siguiente<br>
 Aquellos que muestran una deserción negativa, al analizar estos casos individualmente se ve que son porque los datos no son coherentes, por ejemplo muestran 50 matriculados y 200 titulados por año.<br>
 <br>
+<h4>Normalización</h4>
 Luego, toda columna que tiene cantidades fue normalizada, por ejemplo en el caso de matriculados masculinos y femeninos por carrera, ahora son una proporción con respecto a la cantidad total de matriculados de la carrera, lo mismo para los titulados. Para datos como la cantidad de matriculados, se dividió por la población total de la región y para el PIB, se usó cantidad de matriculados dividido por el PIB de la región.<br>
 		</p>
+	</section>
+
+	<section ng-show="page==4">
+		<h3><i class="fa fa-search"></i> Exploración</h3>
+	</section>
+
+	<section ng-show="page==5">
+		<h3><i class="fa fa-bar-chart"></i> Resultados</h3>
 	</section>
 
 </div>

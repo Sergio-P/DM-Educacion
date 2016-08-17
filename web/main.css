@@ -12,6 +12,10 @@ p{
 	font-size: 16px;
 }
 
+ul.plist{
+	list-style-type: square;
+}
+
 .container{
 	background: white;
 	height: 100vh;
@@ -47,4 +51,6 @@ ul.btn-list li:hover{
 	overflow: auto;
 	height: calc(100vh - 48px);
 	margin-top: 48px;
+	padding: 16px;
+	padding-bottom: 64px;
 }
