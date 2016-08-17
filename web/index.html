@@ -23,7 +23,7 @@
 	<section ng-show="page==1">
 		<h3><i class="fa fa-question-circle"></i> Descripción del Problema</h3>
 		<img src="gpx/edpic1.jpg" class="fullimg">
-		<p>La educación superior en Chile es un tema que todo ciudadano debe tomar en cuenta, y por ello ésta amerita un profundo estudio de su comportamiento con el objetivo de crear políticas públicas acordes a su situación actual. En este proyecto analizaremos sólo ciertos aspectos de la educación superior: los procesos de matrícula y titulación de todas las universidades, centros de formación técnica e institutos profesional del territorio chileno; con tal de obtener posible información relacionada a correlación entre deserción y características de la carrera. Estos procesos, al ser contemporáneos y a nivel nacional, manejan un gran cantidad de datos de variados aspectos: cantidad de titulados, origen de ellos, etc.; los cuales con un análisis estadístico estándar no se podría obtener toda la información que estos datos pueden ocultar, es por eso que se debe recurrir a técnicas de minería de datos para revelar esta información. En particular, se usará la técnica de reglas de asociación, para ver cuáles son las características de las carreras que tienen correlación con que la carrera tenga una deserción alta o baja.<br>
+		<p>La educación superior en Chile es un tema que todo ciudadano debe tomar en cuenta, y por ello ésta amerita un profundo estudio de su comportamiento con el objetivo de crear políticas públicas acordes a su situación actual. En este proyecto se analizarán sólo ciertos aspectos de la educación superior: los procesos de matrícula y titulación de todas las universidades, centros de formación técnica e institutos profesionales del territorio chileno; con tal de obtener posible información relacionada a correlación entre deserción y características de la carrera. Estos procesos, al ser contemporáneos y a nivel nacional, manejan un gran cantidad de datos de variados aspectos: cantidad de titulados, origen de ellos, etc.; los cuales con un análisis estadístico estándar no se podría obtener toda la información que estos datos pueden ocultar, es por eso que se debe recurrir a técnicas de minería de datos para revelar esta información. En particular, se usará la técnica de reglas de asociación, para ver cuáles son las características de las carreras que tienen correlación con que la carrera tenga una deserción alta o baja.<br>
 		</p>
 	</section>
 
@@ -93,7 +93,7 @@ d(n): Cantidad de desertores en el año n<br>
 M(n): Cantidad de matriculados en todos los años el año n<br>
 m(n): Cantidad de matriculados en primer año en el año n<br>
 t(n): Cantidad de titulados de la carrera en el año n<br>
-La lógica detrás de esta fórmula viene de que la cantidad de matriculados totales de un año junto a los nuevos matriculados del año siguiente tienen que ser los mismos que la cantidad de matriculados del año siguiente junto a la gente que se tituló el año anterior y la gente que desertó.<br>
+La lógica detrás de esta fórmula viene de que la cantidad de matriculados totales de un año junto a los nuevos matriculados del año siguiente o se matriculan en el año, se titulan o desertan.<br>
 <br><br>
 Este cálculo lleva a tener que eliminar tres tipos de datos:<br>
 Aquellos que les falta cualquiera de los atributos necesarios para calcular la deserción<br>
@@ -112,11 +112,11 @@ Luego, toda columna que tiene cantidades fue normalizada, por ejemplo en el caso
 	<section ng-show="page==5">
 		<h3><i class="fa fa-bar-chart"></i> Resultados Clustering</h3>
 		<p>
-			El primer intento para caracterizar la deserción con otras variables de universidades se realizó mediante <strong>clustering</strong>. La idea inicial era dado los datos para deserción y otras variables como la cantidad de matriculados masculino, la cantidad de matriculados por población, la cantidad de matriculados por PIB, la cantidad de titulados masculino, el promedio de edad, la proporcion de matriculados de colegios municipales y particulares pagados. Estas variables se pueden ver inicalmente en la siguiente scatterplot matrix.</p>
+			El primer intento para caracterizar la deserción con otras variables de universidades se realizó mediante <strong>clustering</strong>. La idea inicial era dado los datos para deserción y otras variables como la cantidad de matriculados masculino, la cantidad de matriculados por población, la cantidad de matriculados por PIB, la cantidad de titulados masculino, el promedio de edad, la proporcion de matriculados de colegios municipales y particulares pagados. Estas variables se pueden ver inicialmente en la siguiente scatterplot matrix.</p>
 		<div class="figure"><img src="gpx/sctmtx.png"><span>Scatterplot matrix para las usadas en clustering.</span></div>
 		<p><br>
 			<h4>K-Means</h4>
-			Para comenzar se utilizará el método de clustering k-means. Dado que este método obliga a elegir una cantidad de clusters es necesario elegirlo de forma correcta, para esto usamos el gráfico error cuadrático medio vs cantidad de clusters, como se muestra en la figura:
+			Para comenzar se utilizará el método de clustering k-means. Dado que este método obliga a elegir una cantidad de clusters es necesario elegirlo de forma correcta, para esto se usó el gráfico error cuadrático medio vs. cantidad de clusters, como se muestra en la figura:
 		</p>
 		<div class="figure"><img src="gpx/nclust.png"> <span>Gráfico de error cuadrático medio vs número de clusters usando KMeans</span></div>
 		<p>
@@ -135,11 +135,11 @@ Luego, toda columna que tiene cantidades fue normalizada, por ejemplo en el caso
 0.17526	0.50876	0.02732	0.03376	0.49188	0.44703	0.27024	0.14122	0.88397
 0.34624	0.85579	0.01671	0.01979	0.91708	0.45697	0.32689	0.04811	0.84205</pre>
 		<p>
-			Donde el más interesante es el segundo que tiene la deserción más alta, sin embargo no cumple con ninguna otra relación para las demás variables (como ser el máximo o mínimo) por lo cual no se puede tener un resultado conlcuyente.
+			Donde el más interesante es el segundo que tiene la deserción más alta, sin embargo no cumple con ninguna otra relación para las demás variables (como ser el máximo o mínimo) por lo cual no se puede tener un resultado concluyente.
 		</p><br>
 		<h4>DBScan</h4>
 		<p>
-			Además de KMeans se probó el meétodo de clustering DBScan el cual tiene la ventaja de encontrar los clusters por densidad y no por proximidad únicamente a diferencia de K-Means además es tolerante al ruido, y no requiere indicar el número de clusters por lo que el resultado puede ser más coherente. <br>
+			Además de KMeans se probó el método de clustering DBScan el cual tiene la ventaja de encontrar los clusters por densidad y no por proximidad únicamente a diferencia de K-Means, además es tolerante al ruido y no requiere indicar el número de clusters por lo que el resultado puede ser más coherente. <br>
 			El resultado de ejecutar DBScan se muestra en la siguiente figura:
 		</p>
 		<div class="figure"><img src="gpx/dbscan.png"><span>Resultado de clustering con DBScan usando PCA para visualizar (blancos ruido)</span></div>
