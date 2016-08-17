@@ -1,7 +1,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	transition: all 1s;
+	transition: all 0.4s;
 }
 
 body{
@@ -76,4 +76,19 @@ ul.btn-list li:hover{
 img.fullimg{
 	width: 100%;
 	margin-bottom: 16px;
+}
+
+.tooltip{
+	position: absolute;
+	background: #fff;
+	width: 200px;
+	min-height: 80px;
+	display: block;
+	z-index: 100;
+	padding: 6px;
+	word-wrap: break-word;
+	font-size: 14px;
+	top: -20px;
+	left: -20px;
+	pointer-events: none;
 }

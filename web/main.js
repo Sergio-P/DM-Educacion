@@ -15,9 +15,9 @@ app.controller("MainController",function($scope){
 });
 
 let createGraph = (div,dataset) => {
-	var margin = {top: 20, right: 20, bottom: 70, left: 40},
-    width = 600 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+	var margin = {top: 20, right: 20, bottom: 80, left: 60},
+    width = 800 - margin.left - margin.right,
+    height = 420 - margin.top - margin.bottom;
 
 	var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
 
@@ -39,10 +39,14 @@ let createGraph = (div,dataset) => {
 	    .attr("transform", 
 	          "translate(" + margin.left + "," + margin.top + ")");
 
+	var tooltip = d3.select(div).append("div")
+		.attr("class", "tooltip")
+		.style("opacity", 0);
+
 	d3.csv(dataset, function(error, data) {
 	
 	  x.domain(data.map(function(d) { return d.lhs+"=>"+d.rhs; }));
-	  y.domain([0, d3.max(data, function(d) { return d.support; })]);
+	  y.domain([0.40, d3.max(data, function(d) { return d.confidence; })]);
 
 	  svg.append("g")
 	      .attr("class", "x axis")
@@ -62,7 +66,7 @@ let createGraph = (div,dataset) => {
 	      .attr("y", 6)
 	      .attr("dy", ".71em")
 	      .style("text-anchor", "end")
-	      .text("Support");
+	      .text("confidence");
 
 	  svg.selectAll("bar")
 	      .data(data)
@@ -70,9 +74,28 @@ let createGraph = (div,dataset) => {
 	      .style("fill", "steelblue")
 	      .attr("x", function(d) { return x(d.lhs+"=>"+d.rhs); })
 	      .attr("width", x.rangeBand())
-	      .attr("y", function(d) { return y(d.support); })
-	      .attr("height", function(d) { return height - y(d.support); });
+	      .attr("y", function(d) { return y(d.confidence); })
+	      .attr("height", function(d) { return height - y(d.confidence);})
+	      .on("mouseover",function(d){
+	      		tooltip.style("opacity",0.95);
+	      		tooltip.html(getContent(d))
+	      			.style("left", (d3.event.pageX + 10) + "px")
+					.style("top", (d3.event.pageY - 28) + "px");
+	      })
+	      .on("mouseout",function(d){
+	      		tooltip.attr("opacity",0);
+	      });
 
 	});
 
 };
+
+
+let getContent = (d) => {
+	return "<strong>Regla:</strong><br>"+d.lhs.replace(/,/g,", ")+"=>"+d.rhs+"<br>" +
+		"<strong>Support:</strong> "+d.support+"<br>" +
+		"<strong>Confidence:</strong> "+d.confidence+"<br>"+
+		"<strong>Lift:</strong><br> "+d.lift; 
+}
+
+
