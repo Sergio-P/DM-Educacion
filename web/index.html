@@ -15,7 +15,8 @@
 		<li ng-click="setPage(2)">Datos</li>
 		<li ng-click="setPage(3)">Limpieza</li>
 		<li ng-click="setPage(4)">Exploración</li>
-		<li ng-click="setPage(5)">Resultados</li>
+		<li ng-click="setPage(5)">Clustering</li>
+		<li ng-click="setPage(6)">Reglas de Asociación</li>
 	</ul>
 </div>
 <div class="container">
@@ -157,7 +158,30 @@ Luego, toda columna que tiene cantidades fue normalizada, por ejemplo en el caso
 			Los resultados muestran que la existencia de clusters es forzado y en realidad los elementos no se encuentran cercanos unos con otros, por lo que los resultados del proceso no son concluyentes.
 		</p>
 	</section>
-
+	<section ng-show="page==6">
+		<h3>Reglas de Asociación</h3>
+			<h4>Nuevos Datos</h4>
+		<p>
+			Para esta etapa decidimos obtener nuevos indicadores obtenidos de los indicadores anteriormente seleccionados y el dataset de aranceles. Para ello se procedió a elegir solamente datos relevantes de la tabla de arancel como arancel y acreditación, ya que los demás datos de este dataset se pueden obtener de las demás tablas. Además dado que el proceso de reglas de asociación no se limita a tipos numéricos se pueden utilizar los atributos nominales de los dataset que antes no habían sido incluidos.<br><br>
+La tercera tabla de indicadores se describe como:</p>
+<ul class="list-group">
+<li class="list-group-item">Año y código de la carrera (no se tomará en cuenta al momento de buscar reglas de asociación).</li>
+<li class="list-group-item">Deserción normalizada con respecto al total de matriculados. numérico</li>
+<li class="list-group-item">Total de matriculados: numérico</li>
+<li class="list-group-item">Porcentaje de matriculados masculinos : numérico</li>
+<li class="list-group-item">Edad promedio : numérico</li>
+<li class="list-group-item">Porcentaje de alumnos de colegios municipales : numérico</li>
+<li class="list-group-item">Porcentaje de alumnos de colegios particulares : numérico</li>
+<li class="list-group-item">Arancel anual de la carrera : numérico</li>
+<li class="list-group-item">Tipo de institución : String</li>
+<li class="list-group-item">Área OCDE : String</li>
+<li class="list-group-item">Modalidad presencial, semi-presencial o no presencial : String</li>
+<li class="list-group-item">Jornada diurna, vespertina a distancia : String</li>
+<li class="list-group-item">Acreditada o no : 1 si, 2 no.</li>
+</ul>
+<p>La mayoría de estos indicadores están en formato numérico y por lo tanto es imperativo <strong>discretizar</strong>. Para esto se creó un script Python que tome cada columna numérica y aplique una discretización en quintiles (5 grupos con igual cantidad de elementos), dándoles la categoría de Muy bajo, Bajo, Medio, Medio Alto, Alto.
+	</p>
+	</section>
 </div>
 </div>
 </body>
