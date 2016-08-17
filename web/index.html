@@ -107,7 +107,51 @@ Luego, toda columna que tiene cantidades fue normalizada, por ejemplo en el caso
 	</section>
 
 	<section ng-show="page==5">
-		<h3><i class="fa fa-bar-chart"></i> Resultados</h3>
+		<h3><i class="fa fa-bar-chart"></i> Resultados Clustering</h3>
+		<p>
+			El primer intento para caracterizar la deserción con otras variables de universidades se realizó mediante <strong>clustering</strong>. La idea inicial era dado los datos para deserción y otras variables como la cantidad de matriculados masculino, la cantidad de matriculados por población, la cantidad de matriculados por PIB, la cantidad de titulados masculino, el promedio de edad, la proporcion de matriculados de colegios municipales y particulares pagados. Estas variables se pueden ver inicalmente en la siguiente scatterplot matrix.</p>
+		<div class="figure"><img src="gpx/sctmtx.png"><span>Scatterplot matrix para las usadas en clustering.</span></div>
+		<p><br>
+			<h4>K-Means</h4>
+			Para comenzar se utilizará el método de clustering k-means. Dado que este método obliga a elegir una cantidad de clusters es necesario elegirlo de forma correcta, para esto usamos el gráfico error cuadrático medio vs cantidad de clusters, como se muestra en la figura:
+		</p>
+		<div class="figure"><img src="gpx/nclust.png"> <span>Gráfico de error cuadrático medio vs número de clusters usando KMeans</span></div>
+		<p>
+			Usando el método del codo, se puede ver que el cambio ocurre cercano a K=6, por lo que se decidió usar 6 clusters. <br>
+			Al ejecutar el algoritmo con K=6 se obtuvieron los clusters como se muestra en la figura:
+		</p>
+		<div class="figure"><img src="gpx/kmeans.png"><span>Gráfico de los cluster usando KMeans usando PCA para reducir las dimensiones</span></div>
+		<p>
+			Además los centroides tienen la siguiente distribución:
+		</p>
+		<pre>deser	mat_mas	mat_pob	mat_pib	tit_mas	at_edad	mat_mun	mat_par	mat_tes
+0.32586	0.67196	0.00523	0.00576	0.80091	0.62517	0.07907	0.04894	0.25873
+0.58267	0.42225	0.01696	0.01965	0.32704	0.48324	0.35374	0.02744	0.76347
+0.25009	0.16792	0.02431	0.03118	0.10083	0.45223	0.37611	0.05164	0.86893
+0.31577	0.33289	0.00520	0.00601	0.21304	0.63324	0.09024	0.05680	0.28724
+0.17526	0.50876	0.02732	0.03376	0.49188	0.44703	0.27024	0.14122	0.88397
+0.34624	0.85579	0.01671	0.01979	0.91708	0.45697	0.32689	0.04811	0.84205</pre>
+		<p>
+			Donde el más interesante es el segundo que tiene la deserción más alta, sin embargo no cumple con ninguna otra relación para las demás variables (como ser el máximo o mínimo) por lo cual no se puede tener un resultado conlcuyente.
+		</p><br>
+		<h4>DBScan</h4>
+		<p>
+			Además de KMeans se probó el meétodo de clustering DBScan el cual tiene la ventaja de encontrar los clusters por densidad y no por proximidad únicamente a diferencia de K-Means además es tolerante al ruido, y no requiere indicar el número de clusters por lo que el resultado puede ser más coherente. <br>
+			El resultado de ejecutar DBScan se muestra en la siguiente figura:
+		</p>
+		<div class="figure"><img src="gpx/dbscan.png"><span>Resultado de clustering con DBScan usando PCA para visualizar (blancos ruido)</span></div>
+		<p>
+			El resultado muestra que la mayoría de los datos están en un único cluster y la presencia de ruido es muy alta, por lo que no se puede encontrar una asociación de la deserción con otras variables.
+		</p>
+		<br>
+		<h4>Validación</h4>
+		<p>
+			Dado el resultado inesperado de DBScan se procedió a ejecutar un proceso de validación sobre los resultados de KMeans, esto se realizó mediante la construcción de la matriz de distancia que se muestra a continuación:
+		</p>
+		<div class="figure"><img src="gpx/distmatrix.png"><span>Matriz de distancia para una muestra de datos de KMeans</span></div>
+		<p>
+			Los resultados muestran que la existencia de clusters es forzado y en realidad los elementos no se encuentran cercanos unos con otros, por lo que los resultados del proceso no son concluyentes.
+		</p>
 	</section>
 
 </div>
