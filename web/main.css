@@ -8,6 +8,10 @@ body{
 	background: #eee;
 }
 
+p{
+	font-size: 16px;
+}
+
 .container{
 	background: white;
 	height: 100vh;
