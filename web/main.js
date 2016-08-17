@@ -10,11 +10,12 @@ app.controller("MainController",function($scope){
     	self.page = i;
     };
 
-    createGraph("#hola","../data/resultado_alto.csv");
+    createGraph("#hola","../data/resultado_alto.csv","steelblue");
+    createGraph("#hola2","../data/resultado_bajo.csv","orange");
 
 });
 
-let createGraph = (div,dataset) => {
+let createGraph = (div,dataset,color) => {
 	var margin = {top: 20, right: 20, bottom: 80, left: 60},
     width = 800 - margin.left - margin.right,
     height = 420 - margin.top - margin.bottom;
@@ -32,6 +33,10 @@ let createGraph = (div,dataset) => {
 	    .orient("left")
 	    .ticks(10);
 
+	var tooltip = d3.select(div).append("div")
+		.attr("class", "tooltip")
+		.style("opacity", 0);
+
 	var svg = d3.select(div).append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
@@ -39,14 +44,14 @@ let createGraph = (div,dataset) => {
 	    .attr("transform", 
 	          "translate(" + margin.left + "," + margin.top + ")");
 
-	var tooltip = d3.select(div).append("div")
-		.attr("class", "tooltip")
-		.style("opacity", 0);
+    svg.on("mouseout",function(){
+    	tooltip.style("opacity",0);
+    });
 
 	d3.csv(dataset, function(error, data) {
 	
 	  x.domain(data.map(function(d) { return d.lhs+"=>"+d.rhs; }));
-	  y.domain([0.40, d3.max(data, function(d) { return d.confidence; })]);
+	  y.domain([0.40, 0.60]);
 
 	  svg.append("g")
 	      .attr("class", "x axis")
@@ -71,7 +76,7 @@ let createGraph = (div,dataset) => {
 	  svg.selectAll("bar")
 	      .data(data)
 	    .enter().append("rect")
-	      .style("fill", "steelblue")
+	      .style("fill", color)
 	      .attr("x", function(d) { return x(d.lhs+"=>"+d.rhs); })
 	      .attr("width", x.rangeBand())
 	      .attr("y", function(d) { return y(d.confidence); })
