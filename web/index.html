@@ -18,6 +18,7 @@
 		<li ng-click="setPage(4)">Exploración</li>
 		<li ng-click="setPage(5)">Clustering</li>
 		<li ng-click="setPage(6)">Reglas de Asociación</li>
+		<li class="pull-right" ng-click="setPage(7)">About</li>
 	</ul>
 </div>
 <div class="container">
@@ -221,6 +222,26 @@ La tercera tabla de indicadores se describe como:</p>
 	<br>
 	<h4>Relación de las reglas escogidas con otras reglas</h4>
 	<div class="figure"><img src="gpx/reglas.jpg"></div>
+	<br>
+	<h4>Conclusiones</h4>
+	<p>
+		De las carreras con deserción alta, se puede ver que la mayoría de las reglas tienen un arancel muy bajo, corresponden a carreras no acreditadas, institutos profesionales y pertenecientes al área de servicios. <br>
+En las características más interesantes que no se repiten en varias reglas está el no ser de colegio particular y un promedio de edad medio alto. <br>
+Por el contrario en la baja deserción se encuentran carreras de universidades  privadas del CRUCH, de gran cantidad de matriculados, un promedio de edad medio,  de alto arancel y de mayor cantidad de alumnos que vienen de colegios particulares.
+	</p>
+	</section>
+	<section ng-show="page==7">
+		<p>
+		<h3>Proyecto</h3>
+		El proyecto completo, incluido los datasets y script que se utilizaron se encuentra en el siguiente repositorio: <a href="http://github.com/Sergio-P/DM-Educacion">DM-Educación</a>
+		<br><br>
+		<h3>Equipo</h3>
+		- Nicolás Bravo <br>
+		- Sergio Peñafiel <br>
+		- Juan Rojas <br>
+		</p>
+		<br><br>
+		CC5206 - Introducción a la Minería de Datos - 2016
 	</section>
 </div>
 </div>
