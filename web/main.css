@@ -69,6 +69,7 @@ ul.btn-list li:hover{
 
 .figure img{
 	max-width: 100%;
+	max-height: 500px;
 	display: block;
 	margin: 0 auto;
 }
@@ -77,6 +78,19 @@ img.fullimg{
 	width: 100%;
 	margin-bottom: 16px;
 }
+
+.axis {
+	  font: 12px sans-serif;
+	}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2;
+  /*shape-rendering: crispEdges;*/
+}
+
 
 .tooltip{
 	position: absolute;

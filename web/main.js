@@ -10,8 +10,8 @@ app.controller("MainController",function($scope){
     	self.page = i;
     };
 
-    createGraph("#hola","../data/resultado_alto.csv","steelblue");
-    createGraph("#hola2","../data/resultado_bajo.csv","orange");
+    createGraph("#hola","data/resultado_alto.csv","#ff8323");
+    createGraph("#hola2","data/resultado_bajo.csv","#485");
 
 });
 
@@ -49,11 +49,29 @@ let createGraph = (div,dataset,color) => {
     });
 
 	d3.csv(dataset, function(error, data) {
-	
+	  data = data.sort(function(a,b){return b.confidence - a.confidence;});
 	  x.domain(data.map(function(d) { return d.lhs+"=>"+d.rhs; }));
 	  y.domain([0.40, 0.60]);
 
-	  svg.append("g")
+	  svg.selectAll("bar")
+	      .data(data)
+	    .enter().append("rect")
+	      .style("fill", color)
+	      .attr("x", function(d) { return x(d.lhs+"=>"+d.rhs); })
+	      .attr("width", x.rangeBand())
+	      .attr("y", function(d) { return y(d.confidence); })
+	      .attr("height", function(d) { return height - y(d.confidence);})
+	      .on("mouseover",function(d){
+	      		tooltip.style("opacity",0.95);
+	      		tooltip.html(getContent(d))
+	      			.style("left", (d3.event.pageX + 10) + "px")
+					.style("top", (d3.event.pageY - 58) + "px");
+	      })
+	      .on("mouseout",function(d){
+	      		tooltip.attr("opacity",0);
+	      });
+
+	   svg.append("g")
 	      .attr("class", "x axis")
 	      .attr("transform", "translate(0," + height + ")")
 	      .call(xAxis)
@@ -72,24 +90,6 @@ let createGraph = (div,dataset,color) => {
 	      .attr("dy", ".71em")
 	      .style("text-anchor", "end")
 	      .text("confidence");
-
-	  svg.selectAll("bar")
-	      .data(data)
-	    .enter().append("rect")
-	      .style("fill", color)
-	      .attr("x", function(d) { return x(d.lhs+"=>"+d.rhs); })
-	      .attr("width", x.rangeBand())
-	      .attr("y", function(d) { return y(d.confidence); })
-	      .attr("height", function(d) { return height - y(d.confidence);})
-	      .on("mouseover",function(d){
-	      		tooltip.style("opacity",0.95);
-	      		tooltip.html(getContent(d))
-	      			.style("left", (d3.event.pageX + 10) + "px")
-					.style("top", (d3.event.pageY - 28) + "px");
-	      })
-	      .on("mouseout",function(d){
-	      		tooltip.attr("opacity",0);
-	      });
 
 	});
 

@@ -113,6 +113,25 @@ Luego, toda columna que tiene cantidades fue normalizada, por ejemplo en el caso
 
 	<section ng-show="page==4">
 		<h3><i class="fa fa-search"></i> Exploración</h3>
+		<p>
+			A continuación se muestran gráficos iniciales de los datos para poder tener una idea de cómo son las ditribuciones y comportamientos de ellos. Ver posibles agrupaciones no triviales y así permitir el planteamiento de hipótesis.
+		</p>
+		<h4>Cantidad de matriculados a lo largo del tiempo</h4>
+		<div class="figure"><img src="gpx/exp1.png"></div>
+		<h4>Distribución de la cantidad de matriculados en las instituciones superiores</h4>
+		<div class="figure"><img src="gpx/exp2.png"></div>
+		<h4>Cantidad de matriculados por cuidades</h4>
+		<div class="figure"><img src="gpx/exp3.png"></div>
+		<h4>Cantidad de matriculados por género en las distintas areas.</h4>
+		<div class="figure"><img src="gpx/exp4.png"></div>
+		<h4>Cantidad de matriculados por edad para los tipos de instituciones</h4>
+		<div class="figure"><img src="gpx/exp5.png"></div>
+		<h4>Distribución de la cantidad de matriculados en Chile</h4>
+		<div class="figure"><img src="gpx/exp6.png"></div>
+		<h4>Cantidad de carreras inscritas por área OCDE</h4>
+		<div class="figure"><img src="gpx/exp7.png"></div>
+		<h4>Promedio de arancel de las carreras por área OCDE</h4>
+		<div class="figure"><img src="gpx/exp8.png"></div>
 	</section>
 
 	<section ng-show="page==5">
@@ -183,8 +202,15 @@ La tercera tabla de indicadores se describe como:</p>
 <li class="list-group-item">Jornada diurna, vespertina a distancia : String</li>
 <li class="list-group-item">Acreditada o no : String.</li>
 </ul>
-<p>La mayoría de estos indicadores están en formato numérico y por lo tanto es imperativo <strong>discretizar</strong>. Para esto se creó un script Python que tome cada columna numérica y aplique una discretización en quintiles (5 grupos con igual cantidad de elementos), dándoles la categoría de Muy Bajo, Bajo, Medio, Medio Alto, Alto.
+<p><h4>Discretización</h4>
+	La mayoría de estos indicadores están en formato numérico y por lo tanto es imperativo <strong>discretizar</strong>. Para esto se creó un script Python que tome cada columna numérica y aplique una discretización en quintiles (5 grupos con igual cantidad de elementos), dándoles la categoría de Muy Bajo, Bajo, Medio, Medio Alto, Alto.
 	</p>
+	<br>
+	<p>
+		<h4>Búsqueda de Reglas de Asociación</h4>
+		Se buscaron reglas de asociación en el dataset con los atributos descritos, para esto se utilizó el algoritmo A priori para encontrarlas, además dado que el problema original era encontrar relaciones con la deserción, se restrigió a buscar reglas que tuvieran al lado derecho la variable deserción, la cual se separo en 2 grupos. Se analizaron las reglas con deserción Alta y Muy Alta. Y por el contrario se analizaron las reglas con deserción Baja y Muy Baja. En cuanto a la calidad de las reglas se escogió reglas con un support mínimo de 0.01 y un confidence de 0.5. Esto dado que un support más bajo generaba muchas reglas, dado que bastaba con que hubieran unas pocas ocurrencias de la transacción, y uno más alto no entregaba reglas dado la cantidad de dimensiones y grados de libertad de los registros. El caso del confidence se eligió 0.5 dado que esto nos indica que al menos la mitad de los registros con las caracteristicas dadas cumplen la regla.
+	</p>
+	<p>A continuación se muestran las reglas obtenidas graficando su confidence en los siguientes graficos interactivos:</p>
 	<h4>Reglas de Alta Deserción</h4>
 	<div id="hola"></div>
 	<br>
