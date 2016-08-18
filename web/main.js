@@ -50,6 +50,7 @@ let createGraph = (div,dataset,color) => {
 
 	d3.csv(dataset, function(error, data) {
 	  data = data.sort(function(a,b){return b.confidence - a.confidence;});
+	  d3.select(div).append("span").html(computePopular(data));
 	  x.domain(data.map(function(d) { return d.lhs+"=>"+d.rhs; }));
 	  y.domain([0.40, 0.60]);
 
@@ -102,5 +103,24 @@ let getContent = (d) => {
 		"<strong>Confidence:</strong> "+d.confidence+"<br>"+
 		"<strong>Lift:</strong><br> "+d.lift; 
 }
+
+let computePopular = (data) => {
+	var freq = {};
+	var builder = "<br><strong>Valores de Atributos:</strong> ";
+	for(var i in data){
+		var d = data[i];
+		var lhss = d.lhs.replace(/\{|\}/g,"").split(",");
+		for(var j in lhss){
+			var l = lhss[j];
+			if(freq[l]) freq[l]++;
+			else freq[l] = 1;
+		}
+	}
+	console.log(freq);
+	for(var chr in freq){
+		builder += chr+"("+freq[chr]+"), ";
+	}
+	return builder;
+};
 
 
