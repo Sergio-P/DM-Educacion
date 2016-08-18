@@ -28,6 +28,7 @@
 		<img src="gpx/edpic1.jpg" class="fullimg">
 		<p>La educación superior en Chile es un tema que todo ciudadano debe tomar en cuenta, y por ello ésta amerita un profundo estudio de su comportamiento con el objetivo de crear políticas públicas acordes a su situación actual. En este proyecto se analizarán sólo ciertos aspectos de la educación superior: los procesos de matrícula y titulación de todas las universidades, centros de formación técnica e institutos profesionales del territorio chileno; con tal de obtener posible información relacionada a correlación entre deserción y características de la carrera. Estos procesos, al ser contemporáneos y a nivel nacional, manejan un gran cantidad de datos de variados aspectos: cantidad de titulados, origen de ellos, etc.; los cuales con un análisis estadístico estándar no se podría obtener toda la información que estos datos pueden ocultar, es por eso que se debe recurrir a técnicas de minería de datos para revelar esta información. En particular, se usará la técnica de reglas de asociación, para ver cuáles son las características de las carreras que tienen correlación con que la carrera tenga una deserción alta o baja.<br>
 		</p>
+		<div class="figure"><img src="gpx/noticia.png"><span>Noticia en el diario La Tercera sobre la deserción</span></div>
 	</section>
 
 	<section ng-show="page==2">
@@ -227,7 +228,8 @@ La tercera tabla de indicadores se describe como:</p>
 	<p>
 		De las carreras con deserción alta, se puede ver que la mayoría de las reglas tienen un arancel muy bajo, corresponden a carreras no acreditadas, institutos profesionales y pertenecientes al área de servicios. <br>
 En las características más interesantes que no se repiten en varias reglas está el no ser de colegio particular y un promedio de edad medio alto. <br>
-Por el contrario en la baja deserción se encuentran carreras de universidades  privadas del CRUCH, de gran cantidad de matriculados, un promedio de edad medio,  de alto arancel y de mayor cantidad de alumnos que vienen de colegios particulares.
+Por el contrario en la baja deserción se encuentran carreras de universidades  privadas del CRUCH, de gran cantidad de matriculados, un promedio de edad medio,  de alto arancel y de mayor cantidad de alumnos que vienen de colegios particulares. <br>
+Con respecto a las métricas, se puede ver que estas son satisfactorias indicando que la regla se cumple, aunque pareciera que el support es bajo en realidad es un efecto producido por la alta variedad de datos distintos que se pueden encontrar en el conjunto. Por otro lado el alto confidence indica que la regla se cumple la mayoría de las veces que existen las ocurrencias dichas anteriormente, además los valores del lift son muy altos, la mayoría es mayor a 2, lo que indica que existe efectivamente una correlación positiva entre los valores de los atributos y la influencia a la deserción.
 	</p>
 	</section>
 	<section ng-show="page==7">
