@@ -9,3 +9,5 @@ En este repositorio se encuentra:
 - `data` datasets (en csv) que se usaron en el proyecto.
 
 - `scripts` programas en R y python usados para el análisis de minería de datos.
+
+[Link al sitio del proyecto](http://users.dcc.uchile.cl/~spenafie/DME)
